@@ -1,0 +1,34 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Local AWS API dev App
+host: localhost:10010
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /hello:
+    x-swagger-router-controller: hello_world
+    get:
+      description: Says hello
+      operationId: hello
+      parameters:
+        - name: name
+          in: query
+          description: Name to say hello to
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/HelloWorldResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"

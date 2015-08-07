@@ -10,12 +10,12 @@ import preloader from "../src/utils/preloader";
 import Interactive from "./interactive";
 
 const images = {
-  city: require("./city.jpg"),
+  server: require("./server.jpeg"),
   kat: require("./kat.png"),
   logo: require("./formidable-logo.svg")
 };
 
-preloader([images.city, images.kat]);
+preloader([images.server]);
 
 export default class extends React.Component {
   render() {
@@ -23,92 +23,125 @@ export default class extends React.Component {
       <Deck transition={["zoom", "slide"]} transitionDuration={800}>
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} fit caps textColor="black">
-            Spectacle
+            Servers?
           </Heading>
           <Heading size={1} fit caps margin="-20px 0px">
-            A ReactJS Presentation Library
+            We don't need no stinking servers!
           </Heading>
           <Heading size={2} fit caps textColor="black">
-            Where You Can Write Your Decks In JSX
+            Using node.js to build a new kind of web stack
           </Heading>
-          <Link href="https://github.com/FormidableLabs/spectacle">
+          <Link href="https://github.com/jaegerpicker/servers_we_dont_need_any_servers/">
             <Text bold caps textColor="tertiary">View on Github</Text>
           </Link>
-          <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
         </Slide>
-        <Slide transition={['slide']} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-          <Image src={images.kat.replace('/','')} margin="0px auto 40px" height="293px"/>
-          <Heading size={1} fit textColor="primary" textFont="secondary">
-            Wait what?
+        <Slide transition={['slide']} bgColor="black" notes="">
+          <Image src={images.server.replace('/','')} margin="0px auto 40px" height="293px"/>
+          <Heading size={1} fit textColor="primary">
+            Javascript! JAVASCRIPT!!! EVERYWHERE!
           </Heading>
         </Slide>
-        <Slide transition={['zoom', 'fade']} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+        <Slide transition={['slide']} bgColor="secondary" textColor="primary">
+          <Heading>
+            Ok, But Why?
+          </Heading>
+          <List>
+            <ListItem><Appear fid="1">Node.js is a huge language ecosystem to tap into.</Appear></ListItem>
+            <ListItem><Appear fid="2">PaaS based deployments are low risk and high reward.</Appear></ListItem>
+            <ListItem><Appear fid="3">Reduce the required complexity, cost, and dependencies vs a tranditional web stack.</Appear></ListItem>
+            <ListItem><Appear fid="4">Scaling to meet your demand is no longer a concern</Appear></ListItem>
+            <ListItem><Appear fid="5">this application pattern promotes good programming practices</Appear></ListItem>
+            <ListItem><Appear fid="6">And... IT'S AWESOME FUN to code for!</Appear></ListItem>
+          </List>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="primary">
+          <Heading size={2} textColor="tertiary">
+            I don't believe you, How does it do all those things?
+          </Heading>
+          <Appear fid="2">
+            <Heading size={4} cap fit textColor="secondary">
+              You use AWS API, a service that you can define a rest API declaritively to generate and connect to code written in...
+            </Heading>
+          </Appear>
+          <Appear fid="3">
+            <Heading size={4} cap fit textColor="secondary">
+              AWS Lambda, a service that you create a single function (JS or Java) that runs in response to an event be it a rest call or other event source
+            </Heading>
+          </Appear>
+          <Appear fid="4">
+            <Heading size={4} cap fit textColor="secondary">
+              Storing data for quick retrieval and access in DynamoDB, a NoSql Document DB
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary">
+          <Heading size={4} textFont="tertiary" textColor="primary">
+            So you have all of these AWS Managed services, that are cheap, incrediblly relieable, and unbelievablly scalable used in one stack. All using standard node.js
+            to power it.
+          </Heading>
+        </Slide>
+        <Slide transition={['slide']} bgColor="primary">
+          <Heading size={2} textColor="secondary">
+            Let's dig into the techincal details a little more on each of those four core pieces.
+          </Heading>
+        </Slide>
+        <Slide transition={['fade', 'slide']} bgColor="secondary">
+          <BlockQuote size={3}>
+            <Quote>
+              Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+            </Quote>
+            <Cite>
+              https://aws.amazon.com/api-gateway/
+            </Cite>
+          </BlockQuote>
+        </Slide>
+        <Slide transition={['fade', 'slide']} bgColor="primary">
+          <List>
+            <ListItem><Appear fid={1}>Integrates with AWS iam and Cognito for security and identity services</Appear></ListItem>
+            <ListItem><Appear fid={2}>Uses REST API best practices as defined by the popular open source libraries in the swagger project</Appear></ListItem>
+            <ListItem><Appear fid={3}>Defines API routes, parameters expected, and resources or models returned to the caller but that is it</Appear></ListItem>
+            <ListItem><Appear fid={4}>End Points can be easily mapped to Lambda functions or to rely to other REST Endpoints</Appear></ListItem>
+          </List>
+        </Slide>
+        <Slide transition={['fade', 'slide']} bgColor="secondary">
+          <CodePane
+            lang="javascript"
+            source={require("raw!./swagger.example")}
+            margin="20px auto"/>
+        </Slide>
+        <Slide transition={['fade', 'slide']} bgColor="primary">
+          <BlockQuote>
+            <Quote textColor="secondary">
+              AWS Lambda is a compute service that runs your code in response to events and automatically manages the compute resources for you
+            </Quote>
+            <Cite>
+              https://aws.amazon.com/lambda/
+            </Cite>
+          </BlockQuote>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="secondary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
           <CodePane
             lang="javascript"
             source={require("raw!./deck.example")}
             margin="20px auto"/>
         </Slide>
-        <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-          <Appear fid="1">
-            <Heading size={1} caps fit textColor="primary">
-              Full Width
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={1} caps fit textColor="tertiary">
-              Adjustable Darkness
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={1} caps fit textColor="primary">
-              Background Imagery
-            </Heading>
-          </Appear>
+        <Slide transition={['zoom', 'fade']} bgColor="primary">
+          <Quote textColor="secondary">
+            Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale.
+          </Quote>
+          <Cite>
+            https://aws.amazon.com/dynamodb/
+          </Cite>
         </Slide>
-        <Slide transition={["zoom", "fade"]} bgColor="primary">
-          <Heading caps fit>Flexible Layouts</Heading>
-          <Layout>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Left
-              </Heading>
-            </Fill>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Right
-              </Heading>
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide transition={["slide"]} bgColor="black">
-          <BlockQuote>
-            <Quote>Wonderfully formatted quotes</Quote>
-            <Cite>Ken Wheeler</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide transition={["slide", "spin"]} bgColor="primary">
-          <Heading caps fit size={1} textColor="tertiary">
-            Smooth
+        <Slide transition={['zoom', 'fade']} bgColor="secondary">
+          <Heading size={3} textColor="primary" textFont="primary">
+            Using node.js to tie is all together.
           </Heading>
-          <Heading caps fit size={1} textColor="secondary">
-            Combinable Transitions
-          </Heading>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <List>
-            <ListItem><Appear fid="1">Inline style based theme system</Appear></ListItem>
-            <ListItem><Appear fid="2">Autofit text</Appear></ListItem>
-            <ListItem><Appear fid="3">Flexbox layout system</Appear></ListItem>
-            <ListItem><Appear fid="4">React-Router navigation</Appear></ListItem>
-            <ListItem><Appear fid="5">PDF export</Appear></ListItem>
-            <ListItem><Appear fid="6">And...</Appear></ListItem>
+            <ListItem><Appear fid={1}>Swagger-node to generate the api defined in Json/Yaml</Appear></ListItem>
+            <ListItem><Appear fid={2}>Standard npm modules as the lambda functions</Appear></ListItem>
+            <ListItem><Appear fid={3}>dynamodb-doc npm module to communicate with dynamoDB</Appear></ListItem>
           </List>
-        </Slide>
-        <Slide transition={["slide"]} bgColor="primary">
-          <Heading size={1} caps fit textColor="tertiary">
-            Your presentations are interactive
-          </Heading>
-          <Interactive/>
         </Slide>
         <Slide transition={["spin", "slide"]} bgColor="tertiary">
           <Heading size={1} caps fit textColor="primary">

@@ -1,28 +1,33 @@
-return (
-  <Deck transition={['zoom','slide']} transitionDuration={800}>
-    <Slide bgColor="primary">
-      <Heading size={1} fit caps>
-        React Presentations
-      </Heading>
-      <Heading size={2} fit caps>
-        Written In React
-      </Heading>
-    </Slide>
-    <Slide bgColor="black">
-      <Heading size={1} fit textColor="primary" textFont="secondary">
-        Wait What?
-      </Heading>
-    </Slide>
-    <Slide bgColor="primary" textColor="black" align="center top">
-      <Heading size={1} textColor="black" textFont="primary">
-        Thats right
-      </Heading>
-      <List>
-        <ListItem>Inline style based theme system</ListItem>
-        <ListItem>Autofit Text</ListItem>
-        <ListItem>react-router navigation</ListItem>
-        <ListItem>PDF Export</ListItem>
-      </List>
-    </Slide>
-  </Deck>
-)
+var doc = require('dynamodb-doc');
+var AWS = require('aws-sdk');
+
+AWS.config.update({region: "us-east-1"});
+var dynamo = new doc.DynamoDB({endpoint: new AWS.Endpoint('http://localhost:8000')});
+
+function logger(err, data) {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+}
+
+exports.handler = function(event, context){
+  var params = {};
+  params.TableName = "TestDB";
+  params.Item = {Value: event.value};
+  dynamo.putItem(params, logger);
+
+  params = {};
+  params.TableName = "TestDB";
+  params.Item = {Value: event.value};
+
+  dynamo.getItem(params, function(err, data) {
+    if (err) {
+      console.log(err, err.stack);
+    } else {
+      console.log(data);
+      context.succeed(data);
+    }
+  });
+};
