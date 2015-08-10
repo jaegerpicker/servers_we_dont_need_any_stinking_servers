@@ -22,20 +22,20 @@ export default class extends React.Component {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={800}>
         <Slide transition={["zoom"]} bgColor="primary">
-          <Heading size={1} fit caps textColor="black">
+          <Heading size={1} fit caps textColor="#d1decd">
             Servers?
           </Heading>
           <Heading size={1} fit caps margin="-20px 0px">
             We don't need no stinking servers!
           </Heading>
-          <Heading size={2} fit caps textColor="black">
+          <Heading size={2} fit caps textColor="#d1decd">
             Using node.js to build a new kind of web stack
           </Heading>
           <Link href="https://github.com/jaegerpicker/servers_we_dont_need_any_servers/">
             <Text bold caps textColor="tertiary">View on Github</Text>
           </Link>
         </Slide>
-        <Slide transition={['slide']} bgColor="black" notes="">
+        <Slide transition={['slide']} bgColor="#d1decd" notes="">
           <Image src={images.server.replace('/','')} margin="0px auto 40px" height="293px"/>
           <Heading size={1} fit textColor="primary">
             Javascript! JAVASCRIPT!!! EVERYWHERE!
