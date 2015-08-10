@@ -46,37 +46,37 @@ export default class extends React.Component {
             Ok, But Why?
           </Heading>
           <List>
-            <ListItem><Appear fid="1">Node.js is a huge language ecosystem to tap into.</Appear></ListItem>
-            <ListItem><Appear fid="2">PaaS based deployments are low risk and high reward.</Appear></ListItem>
-            <ListItem><Appear fid="3">Reduce the required complexity, cost, and dependencies vs a tranditional web stack.</Appear></ListItem>
+            <ListItem><Appear fid="1">Node.js is a huge language ecosystem to tap into</Appear></ListItem>
+            <ListItem><Appear fid="2">PaaS based deployments are low risk and high reward</Appear></ListItem>
+            <ListItem><Appear fid="3">Reduce the required complexity, cost, and dependencies vs a traditional web stack</Appear></ListItem>
             <ListItem><Appear fid="4">Scaling to meet your demand is no longer a concern</Appear></ListItem>
-            <ListItem><Appear fid="5">this application pattern promotes good programming practices</Appear></ListItem>
-            <ListItem><Appear fid="6">And... IT'S AWESOME FUN to code for!</Appear></ListItem>
+            <ListItem><Appear fid="5">This application pattern promotes good programming practices</Appear></ListItem>
+            <ListItem><Appear fid="6">And... IT'S AWESOME FUN to code in!</Appear></ListItem>
           </List>
         </Slide>
         <Slide transition={['zoom', 'fade']} bgColor="primary">
-          <Heading size={2} textColor="tertiary">
-            I don't believe you, How does it do all those things?
+          <Heading size={6} textColor="tertiary">
+            I don't believe you, how does it do all those things?
           </Heading>
           <Appear fid="2">
-            <Heading size={4} cap fit textColor="secondary">
+            <Heading size={6} textColor="secondary">
               You use AWS API, a service that you can define a rest API declaritively to generate and connect to code written in...
             </Heading>
           </Appear>
           <Appear fid="3">
-            <Heading size={4} cap fit textColor="secondary">
-              AWS Lambda, a service that you create a single function (JS or Java) that runs in response to an event be it a rest call or other event source
+            <Heading size={6} textColor="secondary">
+              AWS Lambda, a service that you create a single function (JS or Java) that runs in response to an event, be it a rest call or other event source...
             </Heading>
           </Appear>
           <Appear fid="4">
-            <Heading size={4} cap fit textColor="secondary">
-              Storing data for quick retrieval and access in DynamoDB, a NoSql Document DB
+            <Heading size={6} textColor="secondary">
+              Storing data for quick retrieval and access in DynamoDB, a NoSql Document DB.
             </Heading>
           </Appear>
         </Slide>
         <Slide transition={['fade']} bgColor="secondary">
           <Heading size={4} textFont="tertiary" textColor="primary">
-            So you have all of these AWS Managed services, that are cheap, incrediblly relieable, and unbelievablly scalable used in one stack. All using standard node.js
+            So you have all of these AWS Managed services that are cheap, incredibly reliable, and unbelievably scalable used in one stack; all using standard node.js
             to power it.
           </Heading>
         </Slide>
@@ -99,8 +99,8 @@ export default class extends React.Component {
           <List>
             <ListItem><Appear fid={1}>Integrates with AWS iam and Cognito for security and identity services</Appear></ListItem>
             <ListItem><Appear fid={2}>Uses REST API best practices as defined by the popular open source libraries in the swagger project</Appear></ListItem>
-            <ListItem><Appear fid={3}>Defines API routes, parameters expected, and resources or models returned to the caller but that is it</Appear></ListItem>
-            <ListItem><Appear fid={4}>End Points can be easily mapped to Lambda functions or to rely to other REST Endpoints</Appear></ListItem>
+            <ListItem><Appear fid={3}>Defines API routes, parameters expected, and resources or models returned to the caller and goes no further</Appear></ListItem>
+            <ListItem><Appear fid={4}>End Points can be easily mapped to Lambda functions or to relay to other REST Endpoints</Appear></ListItem>
           </List>
         </Slide>
         <Slide transition={['fade', 'slide']} bgColor="secondary">
@@ -134,20 +134,139 @@ export default class extends React.Component {
           </Cite>
         </Slide>
         <Slide transition={['zoom', 'fade']} bgColor="secondary">
-          <Heading size={3} textColor="primary" textFont="primary">
-            Using node.js to tie is all together.
-          </Heading>
-          <List>
-            <ListItem><Appear fid={1}>Swagger-node to generate the api defined in Json/Yaml</Appear></ListItem>
-            <ListItem><Appear fid={2}>Standard npm modules as the lambda functions</Appear></ListItem>
+          <List textColor="primary">
+            <ListItem><Appear fid={1}>Using Swagger-node to generate the api declaritively in Json/Yaml</Appear></ListItem>
+            <ListItem><Appear fid={2}>Standard npm modules are the lambda functions</Appear></ListItem>
             <ListItem><Appear fid={3}>dynamodb-doc npm module to communicate with dynamoDB</Appear></ListItem>
+            <ListItem><Appear fid={4}>Open Source and standards based node.js used to build a server-side application with no server to maintain</Appear></ListItem>
           </List>
         </Slide>
-        <Slide transition={["spin", "slide"]} bgColor="tertiary">
-          <Heading size={1} caps fit textColor="primary">
-            Made with love in Seattle by
+        <Slide transition={['zoom', 'fade']} bgColor="primary">
+          <Heading size={3} textColor="secondary" textFont="primary">
+            <Appear fid={1}>
+              Great, but using all of these hosted services has to suck for local development, right?
+            </Appear>
+            <Appear fid={2}>
+              No! That's the best part. There is a great local development setup, here's what I suggest...
+            </Appear>
           </Heading>
-          <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="secondary">
+          <List cap fit textFont="primary" textColor="tertiary">
+            <ListItem><Appear fid={1}>Use Vagrant to setup a VM</Appear></ListItem>
+            <ListItem><Appear fid={2}>Use SaltStack/Puppet/Chef to setup the needed VM services</Appear></ListItem>
+            <ListItem><Appear fid={3}>Including DynamoDB Local </Appear></ListItem>
+            <ListItem><Appear fid={4}>A swagger-node server to run the AWS API gateway config</Appear></ListItem>
+            <ListItem><Appear fid={5}>A collection of npm modules to run the AWS Lambda Code</Appear></ListItem>
+            <ListItem><Appear fid={6}>Requires the writing of a ultra light controller method for the lambda functions to be called</Appear></ListItem>
+            <ListItem><Appear fid={7}>Setup vm shares to enable local editing for the code</Appear></ListItem>
+            <ListItem><Appear fid={8}>Create a docker image to run the node.js front end application</Appear></ListItem>
+            <ListItem><Appear fid={8}>Setup vm port forwarding (8000, 3000, 8080, 5858, 5959) for dynamoDB Local, the Swagger-node server, the node.js web appliction, and remote node.js debugging of both apps</Appear></ListItem>
+          </List>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="primary">
+          <Heading textColor="secondary" textFont="primary">
+            Introducing Horizon, the application pattern designed build AWS Server-less applications
+          </Heading>
+          <Link href="https://github.com/Horizon-Framework/horizon">
+            <Text bold caps textColor="tertiary" textFont="primary">
+              Contribute, Follow, and Watch at https://github.com/Horizon-Framework/horizon
+            </Text>
+          </Link>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="secondary" >
+          <List textColor="tertiary" textFont="primary">
+            <ListItem>
+              <Link href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.html">
+
+                  dynamoDB Tools: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.html
+
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.Shell.html">
+
+                  dynamoDB JavaScript Shell: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.Shell.html
+
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="http://aws.amazon.com/blogs/aws/amazon-dynamodb-libraries-mappers-and-mock-implementations-galore/">
+
+                  dynamoDB Mock/Local implementations: http://aws.amazon.com/blogs/aws/amazon-dynamodb-libraries-mappers-and-mock-implementations-galore/
+
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://github.com/garnaat/kappa">
+
+                  Kappa, tool to deploy AWS Lambda code: https://github.com/garnaat/kappa
+
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="http://json-schema.org/examples.html">
+
+                  JSON-Schema, structured rest models: http://json-schema.org/examples.html
+
+              </Link>
+            </ListItem>
+
+          </List>
+        </Slide>
+        <Slide bgColor="secondary">
+          <List>
+          <ListItem>
+            <Link href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/">
+
+                AWS Sdk for JavaScript: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/
+
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="https://github.com/servant-app/JAWS">
+
+                JAWS, another AWS server-less framework: https://github.com/servant-app/JAWS
+
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="https://github.com/swagger-api/swagger-node">
+
+                Swagger-Node, how to define your API declaritively: https://github.com/swagger-api/swagger-node
+
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="https://github.com/awslabs/aws-apigateway-swagger-importer">
+
+                AWS Api Swagger importer: https://github.com/awslabs/aws-apigateway-swagger-importer
+
+            </Link>
+          </ListItem>
+        </List>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary" textFont="primary">
+            My name is Shawn Campbell
+          </Heading>
+          <Link href="mailto:jaegerpicker@gmail.com">
+            <Text bold caps textColor="primary">
+              Email: Jaegerpicker@gmail.com
+            </Text>
+          </Link>
+          <Link href="https://twitter.com/jaegerpicker">
+            <Text bold caps textColor="primary">
+              Twitter: @jaegerpicker
+            </Text>
+          </Link>
+          <Link href="https://www.vetsfirstchoice.com">
+            <Text bold caps textColor="primary">
+              Many thanks to my awesome employer Vet's First Choice! I'm Lead Software
+              Engineer there. If you are looking for an amazing place to work, email me
+              at scampbell@vetsfirstchoice.com
+            </Text>
+          </Link>
         </Slide>
       </Deck>
     );
