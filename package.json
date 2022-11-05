@@ -22,8 +22,8 @@
     "react": "^0.13.3",
     "react-router": "^1.0.0-beta2",
     "react-tween-state": "0.0.5",
-    "style-loader": "^0.12.3",
-    "stylus-loader": "^1.2.1",
+    "style-loader": "^1.1.4",
+    "stylus-loader": "^4.0.0",
     "tween-functions": "^1.0.2"
   },
   "devDependencies": {
